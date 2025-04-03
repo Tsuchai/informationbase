@@ -25,13 +25,15 @@ This project implements a FastAPI-based application that provides an information
 
 ## Usage
 
-1. **Run the application**:
+1. **Run the application (Make sure you are in the proper directory)**:
    ```sh
    python main.py
    ```
 
+
+
 2. **Access the web interface**:
-   The application will automatically open the web interface in your default web browser at `http://127.0.0.1:8000`.
+   The application will automatically open the web interface in your default web browser at `http://127.0.0.1:8000/static/`.
 
 ## API Endpoints
 

@@ -128,7 +128,7 @@ def normalize_query(query):
     return query
 
 def open_browser():
-    webbrowser.open("http://127.0.0.1:8000")
+    webbrowser.open("http://127.0.0.1:8000/static")
 
 # API endpoint to handle user questions
 @app.post("/ask")
