@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q&A Information Display</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            text-align: center;
+        }
+        #answer {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ask a Question</h1>
+    <input type="text" id="question" placeholder="Enter your question" size="50">
+    <button onclick="fetchAnswer()">Search</button>
+    <div id="answer"></div>
+
+    <script>
+        async function fetchAnswer() {
+            const question = document.getElementById("question").value;
+            if (!question) return;
+
+            document.getElementById("answer").style.display = "block";
+            document.getElementById("answer").innerHTML = "Searching...";
+
+            const response = await fetch("http://127.0.0.1:8000/ask", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ query: question })
+            });
+
+            const data = await response.json();
+            document.getElementById("answer").innerHTML = data.answer;
+        }
+    </script>
+</body>
+</html>
